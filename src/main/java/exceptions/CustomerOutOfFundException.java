@@ -1,6 +1,6 @@
 package exceptions;
 
-public class CustomerOutOfFundException extends Exception{
+public class CustomerOutOfFundException extends RuntimeException{
     public CustomerOutOfFundException (String message){
         super(message);
     }
