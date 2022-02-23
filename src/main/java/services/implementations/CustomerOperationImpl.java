@@ -17,12 +17,11 @@ public class CustomerOperationImpl implements CustomerOperation {
 
     @Override
     public void addProductToCart(Customer customer, Store store, String productName, int quantity) throws ProductIsOutOfStuckException, StaffNotAuthorizedToPerformOperationException {
-        for (Product eachProduct : store.getListOfProductInStore()){
-            if (eachProduct.getProductName().equals(productName)) {
-                if (eachProduct.getProductQuantity() < quantity)
-                    throw new ProductIsOutOfStuckException("We are currently low on this. Quantity in stock is " + quantity);
-                customer.getCart().put(eachProduct.getProductName(), quantity);
-            } else throw new ProductIsOutOfStuckException(eachProduct.getProductName() + " is currently out of stock");
+        for (Product eachProduct : store.getListOfProductInStore()) {
+            if (eachProduct.getProductName().equalsIgnoreCase(productName)) {
+                if (eachProduct.getProductQuantity() < quantity) throw new ProductIsOutOfStuckException("We are currently low on this. Quantity in stock is " + quantity);
+          customer.getCart().put(eachProduct.getProductName(), quantity);
+            }
         }
     }
 

@@ -1,0 +1,2 @@
+	 -----------JSpears Groceries-----------
+ Product name ---- Price ---- Units ----  Total Price

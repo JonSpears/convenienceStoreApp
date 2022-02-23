@@ -60,7 +60,8 @@ class CustomerOperationImplTest {
     }
 
     @Test
-    public void shouldThrowAnExceptionIfCustomerOrderIsMoreThanProductInStock(){
+    public void shouldThrowAnExceptionIfCustomerOrderIsMoreThanProductInStock() throws IOException, StaffNotAuthorizedToPerformOperationException {
+        administrativeOperations.addProductToStoreFromExcel(company, manager);
         assertThrows(ProductIsOutOfStuckException.class,
                 ()-> customerOperation.addProductToCart(customer, company, "Wheat Bread", 60));
     }
