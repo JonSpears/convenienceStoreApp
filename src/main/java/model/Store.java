@@ -16,7 +16,7 @@ public class Store {
     private double companyAccountBalance = 0.0;
     private final List<Applicant>applicants = new ArrayList<>();
     private final List<Staff> staff = new ArrayList<>();
-    private Product[] listOfProductInStore = new Product[1];
+    private Product[] listOfProductInStore = new Product[0];
 
     private Product[] listOfProductInStore(String productName) {
         for (Product product : listOfProductInStore) {

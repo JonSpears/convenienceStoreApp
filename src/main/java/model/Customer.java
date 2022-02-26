@@ -33,4 +33,14 @@ public class Customer extends User {
 
     public Customer(String name, Gender gender) {
     }
+
+    @Override
+    public String toString() {
+        return "Customer{Name: " + getUserName() +
+                "wallet=" + wallet +
+                ", cart=" + cart +
+                ", checkOut=" + checkOut +
+                ", totalGoodsPrice=" + totalGoodsPrice +
+                '}';
+    }
 }

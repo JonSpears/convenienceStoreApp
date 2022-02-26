@@ -8,7 +8,6 @@ import lombok.*;
 import java.util.List;
 import java.util.Random;
 
-@ToString
 @Getter
 @Setter
 public class Staff extends User {
@@ -24,5 +23,12 @@ public class Staff extends User {
         int randomNum = random.nextInt(200) + 100;
         String role = super.getRole() == Role.CASHIER ? "CASR" : "MANG";
         return "STA-" + role + "-" + randomNum;
+    }
+
+    @Override
+    public String toString() {
+        return "Staff{Name: " + getUserName() + ", E-mail: " + getEmail() + ", Gender: " + getGender() +
+                "staffID: " + staffID + '\'' +
+                '}';
     }
 }

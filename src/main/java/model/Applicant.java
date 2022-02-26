@@ -6,9 +6,6 @@ import comon.User;
 import enums.Role;
 import lombok.*;
 
-@ToString
-//@AllArgsConstructor
-//@NoArgsConstructor
 @Getter
 @Setter
 
@@ -22,5 +19,12 @@ public class Applicant extends User {
 
     public Applicant(Qualification qualification) {
         this.qualification = qualification;
+    }
+
+    @Override
+    public String toString() {
+        return "Applicant{Name: " + getUserName() + ", E-mail: " + getEmail() + ", Gender: " + getGender() +
+                ", qualification=" + qualification +
+                '}';
     }
 }

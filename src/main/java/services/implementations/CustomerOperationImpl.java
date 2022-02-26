@@ -20,6 +20,7 @@ public class CustomerOperationImpl implements CustomerOperation {
         for (Product eachProduct : store.getListOfProductInStore()) {
             if (eachProduct.getProductName().equalsIgnoreCase(productName)) {
                 if (eachProduct.getProductQuantity() < quantity) throw new ProductIsOutOfStuckException("We are currently low on this. Quantity in stock is " + quantity);
+                else if (eachProduct.getProductQuantity() <= 0) throw new ProductIsOutOfStuckException("We are currently out of stock on " + eachProduct.getProductName());
           customer.getCart().put(eachProduct.getProductName(), quantity);
             }
         }

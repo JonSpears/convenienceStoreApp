@@ -51,7 +51,7 @@ public class AdministrativeOperationsImplTest {
     public void shouldUpdateNumbersOfHiredApplicant() throws ApplicantNotQualifiedException {
         administrativeOperations.hireApplicants(company, manager, applicant1);
         administrativeOperations.hireApplicants(company, manager, applicant3);
-        assertEquals(2, company.getStaff().size());
+        Assertions.assertEquals(2, company.getStaff().size());
     }
 
     @Test
@@ -85,10 +85,13 @@ public class AdministrativeOperationsImplTest {
         administrativeOperations.addProductToStoreFromExcel(company, manager);
         Assertions.assertEquals(25, company.getProductsInStoreSize());
         customerOperation.fundCustomerWallet(customer, 200_000);
-        customerOperation.addProductToCart(customer, company, "Wheat Bread", 5);
+        customerOperation.addProductToCart(customer, company, "Wheat Bread", 50);
         customerOperation.purchaseGoodsInCart(customer);
         administrativeOperations.sellProductToCustomer(company, cashier, customer);
-        Assertions.assertEquals(45, company.getProduct("Wheat Bread").getProductQuantity());
+        customerOperation.addProductToCart(customer, company, "Wheat Bread", 1);
+        customerOperation.purchaseGoodsInCart(customer);
+        administrativeOperations.sellProductToCustomer(company, cashier, customer);
+        Assertions.assertEquals(0, company.getProduct("Wheat Bread").getProductQuantity());
     }
 
     @Test
@@ -109,6 +112,7 @@ public class AdministrativeOperationsImplTest {
         administrativeOperations.addProductToStoreFromExcel(company, manager);
         Assertions.assertEquals("Beverages", administrativeOperations.viewProductByCategory(company, "Beverages").get(0).getProductCategory());
         Assertions.assertEquals("Bread/Bakery", administrativeOperations.viewProductByCategory(company, "Bread/Bakery").get(1).getProductCategory());
+        Assertions.assertEquals("Canned", administrativeOperations.viewProductByCategory(company, "Canned").get(2).getProductCategory());
     }
 
 

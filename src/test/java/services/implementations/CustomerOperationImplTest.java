@@ -2,6 +2,7 @@ package services.implementations;
 
 import enums.Gender;
 import enums.Role;
+import exceptions.CustomerOutOfFundException;
 import exceptions.ProductIsOutOfStuckException;
 import exceptions.StaffNotAuthorizedToPerformOperationException;
 import model.*;
@@ -65,5 +66,4 @@ class CustomerOperationImplTest {
         assertThrows(ProductIsOutOfStuckException.class,
                 ()-> customerOperation.addProductToCart(customer, company, "Wheat Bread", 60));
     }
-
 }

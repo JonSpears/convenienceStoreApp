@@ -4,6 +4,7 @@ import enums.Role;
 import enums.Gender;
 import lombok.*;
 
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

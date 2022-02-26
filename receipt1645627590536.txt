@@ -1,3 +1,0 @@
-	 -----------JSpears Groceries-----------
- Product name ---- Price ---- Units ----  Total Price
-1. Wheat Bread	 | 500.0	 | 10	 |  5000.0
